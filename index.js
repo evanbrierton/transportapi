@@ -3,9 +3,7 @@ require('dotenv').config();
 const express = require('express');
 
 const { errorHandler } = require('./handlers');
-
-const { luasRoutes } = require('./routes');
-const { dartRoutes } = require('./routes');
+const { luasRoutes, dartRoutes } = require('./routes');
 
 const app = express();
 

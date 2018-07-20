@@ -1,5 +1,3 @@
-const errorHandler = require('./error');
-const luas = require('./luas');
-const dart = require('./dart');
-
-module.exports = { errorHandler, luas, dart };
+exports.errorHandler = require('./error');
+exports.luas = require('./luas');
+exports.dart = require('./dart');
