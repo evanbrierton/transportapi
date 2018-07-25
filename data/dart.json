@@ -1,288 +1,288 @@
 [{
   "name": "Malahide",
   "location": {
-    "latitude": "53.4509",
-    "longitude": "-6.15649"
+    "longitude": -6.15649,
+    "latitude": 53.4509
   },
   "code": "MHIDE",
-  "id": "112"
+  "id": 112
 },
 {
   "name": "Portmarnock",
   "location": {
-    "latitude": "53.4169",
-    "longitude": "-6.1512"
+    "longitude": -6.1512,
+    "latitude": 53.4169
   },
   "code": "PMNCK",
-  "id": "111"
+  "id": 111
 },
 {
   "name": "Clongriffin",
   "location": {
-    "latitude": "53.4032",
-    "longitude": "-6.14839"
+    "longitude": -6.14839,
+    "latitude": 53.4032
   },
   "code": "GRGRD",
-  "id": "187"
+  "id": 187
 },
 {
   "name": "Sutton",
   "location": {
-    "latitude": "53.392",
-    "longitude": "-6.11448"
+    "longitude": -6.11448,
+    "latitude": 53.392
   },
   "code": "SUTTN",
-  "id": "107"
+  "id": 107
 },
 {
   "name": "Bayside",
   "location": {
-    "latitude": "53.3917",
-    "longitude": "-6.13678"
+    "longitude": -6.13678,
+    "latitude": 53.3917
   },
   "code": "BYSDE",
-  "id": "106"
+  "id": 106
 },
 {
   "name": "Howth Junction and Donaghmede",
   "location": {
-    "latitude": "53.3909",
-    "longitude": "-6.15672"
+    "longitude": -6.15672,
+    "latitude": 53.3909
   },
   "code": "HWTHJ",
-  "id": "105"
+  "id": 105
 },
 {
   "name": "Howth",
   "location": {
-    "latitude": "53.3891",
-    "longitude": "-6.07401"
+    "longitude": -6.07401,
+    "latitude": 53.3891
   },
   "code": "HOWTH",
-  "id": "108"
+  "id": 108
 },
 {
   "name": "Kilbarrack",
   "location": {
-    "latitude": "53.387",
-    "longitude": "-6.16163"
+    "longitude": -6.16163,
+    "latitude": 53.387
   },
   "code": "KBRCK",
-  "id": "104"
+  "id": 104
 },
 {
   "name": "Raheny",
   "location": {
-    "latitude": "53.3815",
-    "longitude": "-6.17699"
+    "longitude": -6.17699,
+    "latitude": 53.3815
   },
   "code": "RAHNY",
-  "id": "103"
+  "id": 103
 },
 {
   "name": "Harmonstown",
   "location": {
-    "latitude": "53.3786",
-    "longitude": "-6.19131"
+    "longitude": -6.19131,
+    "latitude": 53.3786
   },
   "code": "HTOWN",
-  "id": "102"
+  "id": 102
 },
 {
   "name": "Killester",
   "location": {
-    "latitude": "53.373",
-    "longitude": "-6.20442"
+    "longitude": -6.20442,
+    "latitude": 53.373
   },
   "code": "KLSTR",
-  "id": "101"
+  "id": 101
 },
 {
   "name": "Clontarf Road",
   "location": {
-    "latitude": "53.3629",
-    "longitude": "-6.22753"
+    "longitude": -6.22753,
+    "latitude": 53.3629
   },
   "code": "CTARF",
-  "id": "109"
+  "id": 109
 },
 {
   "name": "Dublin Connolly",
   "location": {
-    "latitude": "53.3531",
-    "longitude": "-6.24591"
+    "longitude": -6.24591,
+    "latitude": 53.3531
   },
   "code": "CNLLY",
-  "id": "100"
+  "id": 100
 },
 {
   "name": "Tara Street",
   "location": {
-    "latitude": "53.347",
-    "longitude": "-6.25425"
+    "longitude": -6.25425,
+    "latitude": 53.347
   },
   "code": "TARA",
-  "id": "124"
+  "id": 124
 },
 {
   "name": "Dublin Pearse",
   "location": {
-    "latitude": "53.3433",
-    "longitude": "-6.24829"
+    "longitude": -6.24829,
+    "latitude": 53.3433
   },
   "code": "PERSE",
-  "id": "150"
+  "id": 150
 },
 {
   "name": "Grand Canal Dock",
   "location": {
-    "latitude": "53.3397",
-    "longitude": "-6.23773"
+    "longitude": -6.23773,
+    "latitude": 53.3397
   },
   "code": "GCDK",
-  "id": "110"
+  "id": 110
 },
 {
   "name": "Lansdowne Road",
   "location": {
-    "latitude": "53.3347",
-    "longitude": "-6.22979"
+    "longitude": -6.22979,
+    "latitude": 53.3347
   },
   "code": "LDWNE",
-  "id": "125"
+  "id": 125
 },
 {
   "name": "Sandymount",
   "location": {
-    "latitude": "53.3281",
-    "longitude": "-6.22116"
+    "longitude": -6.22116,
+    "latitude": 53.3281
   },
   "code": "SMONT",
-  "id": "188"
+  "id": 188
 },
 {
   "name": "Sydney Parade",
   "location": {
-    "latitude": "53.3206",
-    "longitude": "-6.21112"
+    "longitude": -6.21112,
+    "latitude": 53.3206
   },
   "code": "SIDNY",
-  "id": "126"
+  "id": 126
 },
 {
   "name": "Booterstown",
   "location": {
-    "latitude": "53.3099",
-    "longitude": "-6.19498"
+    "longitude": -6.19498,
+    "latitude": 53.3099
   },
   "code": "BTSTN",
-  "id": "127"
+  "id": 127
 },
 {
   "name": "Blackrock",
   "location": {
-    "latitude": "53.3027",
-    "longitude": "-6.17833"
+    "longitude": -6.17833,
+    "latitude": 53.3027
   },
   "code": "BROCK",
-  "id": "128"
+  "id": 128
 },
 {
   "name": "Seapoint",
   "location": {
-    "latitude": "53.2991",
-    "longitude": "-6.16512"
+    "longitude": -6.16512,
+    "latitude": 53.2991
   },
   "code": "SEAPT",
-  "id": "129"
+  "id": 129
 },
 {
   "name": "Salthill and Monkstown",
   "location": {
-    "latitude": "53.2954",
-    "longitude": "-6.15206"
+    "longitude": -6.15206,
+    "latitude": 53.2954
   },
   "code": "SHILL",
-  "id": "130"
+  "id": 130
 },
 {
   "name": "Dun Laoghaire",
   "location": {
-    "latitude": "53.2951",
-    "longitude": "-6.13498"
+    "longitude": -6.13498,
+    "latitude": 53.2951
   },
   "code": "DLERY",
-  "id": "131"
+  "id": 131
 },
 {
   "name": "Sandycove",
   "location": {
-    "latitude": "53.2878",
-    "longitude": "-6.12712"
+    "longitude": -6.12712,
+    "latitude": 53.2878
   },
   "code": "SCOVE",
-  "id": "132"
+  "id": 132
 },
 {
   "name": "Glenageary",
   "location": {
-    "latitude": "53.2812",
-    "longitude": "-6.12289"
+    "longitude": -6.12289,
+    "latitude": 53.2812
   },
   "code": "GLGRY",
-  "id": "133"
+  "id": 133
 },
 {
   "name": "Dalkey",
   "location": {
-    "latitude": "53.2756",
-    "longitude": "-6.10333"
+    "longitude": -6.10333,
+    "latitude": 53.2756
   },
   "code": "DLKEY",
-  "id": "134"
+  "id": 134
 },
 {
   "name": "Killiney",
   "location": {
-    "latitude": "53.2557",
-    "longitude": "-6.11317"
+    "longitude": -6.11317,
+    "latitude": 53.2557
   },
   "code": "KILNY",
-  "id": "135"
+  "id": 135
 },
 {
   "name": "Shankill",
   "location": {
-    "latitude": "53.2364",
-    "longitude": "-6.11691"
+    "longitude": -6.11691,
+    "latitude": 53.2364
   },
   "code": "SKILL",
-  "id": "136"
+  "id": 136
 },
 {
   "name": "Bray",
   "location": {
-    "latitude": "53.2043",
-    "longitude": "-6.10046"
+    "longitude": -6.10046,
+    "latitude": 53.2043
   },
   "code": "BRAY",
-  "id": "140"
+  "id": 140
 },
 {
   "name": "Greystones",
   "location": {
-    "latitude": "53.1442",
-    "longitude": "-6.06085"
+    "longitude": -6.06085,
+    "latitude": 53.1442
   },
   "code": "GSTNS",
-  "id": "141"
+  "id": 141
 },
 {
   "name": "Kilcoole",
   "location": {
-    "latitude": "53.107",
-    "longitude": "-6.04112"
+    "longitude": -6.04112,
+    "latitude": 53.107
   },
   "code": "KCOOL",
-  "id": "139"
+  "id": 139
 }]

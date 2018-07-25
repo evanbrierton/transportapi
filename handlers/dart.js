@@ -1,18 +1,14 @@
 const { toJson } = require('xml2json');
 
-const { utils: { request, findStop }, validators: { checkServices } } = require('../helpers');
+const {
+  utils: { request, findStop }, constructors: { GetStops, Nearby }, validators: { checkServices },
+} = require('../helpers');
 const { dart } = require('../data');
 
-exports.getStops = async (req, res, next) => {
-  try {
-    res.status(200).json(dart);
-  } catch (err) {
-    next(err);
-  }
-};
+exports.getStops = async (req, res, next) => GetStops(res, next, dart);
 
-exports.getStop = ({ params: { id } }, res, next) => {
-  findStop('dart', id)
+exports.getStop = async ({ params: { id } }, res, next) => {
+  findStop(dart, id)
     .then(({ name }) => request(`http://api.irishrail.ie/realtime/realtime.asmx/getStationDataByNameXML?StationDesc=${name}`))
     .then(data => toJson(data))
     .then(data => JSON.parse(data))
@@ -23,7 +19,7 @@ exports.getStop = ({ params: { id } }, res, next) => {
     }) => ({
       destination: Destination,
       location: typeof Lastlocation === 'object' ? 'Depot' : Lastlocation,
-      due: Duein,
+      due: +Duein,
       type: Traintype,
       direction: Direction,
       stationName: Stationfullname,
@@ -34,3 +30,5 @@ exports.getStop = ({ params: { id } }, res, next) => {
     .then(data => res.status(200).json(data))
     .catch(err => next(err));
 };
+
+exports.nearby = (req, res, next) => Nearby(req, res, next, dart);

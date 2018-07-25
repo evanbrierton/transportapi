@@ -1,5 +1,5 @@
 [{
-  "id": "1",
+  "id": 1,
   "name": "Tallaght",
   "code": "TAL",
   "location": {
@@ -8,7 +8,7 @@
   }
 },
 {
-  "id": "2",
+  "id": 2,
   "name": "Hospital",
   "code": "HOS",
   "location": {
@@ -17,7 +17,7 @@
   }
 },
 {
-  "id": "3",
+  "id": 3,
   "name": "Cookstown",
   "code": "COO",
   "location": {
@@ -26,7 +26,7 @@
   }
 },
 {
-  "id": "4",
+  "id": 4,
   "name": "Belgard",
   "code": "BEL",
   "location": {
@@ -35,7 +35,7 @@
   }
 },
 {
-  "id": "5",
+  "id": 5,
   "name": "Kingswood",
   "code": "KIN",
   "location": {
@@ -44,7 +44,7 @@
   }
 },
 {
-  "id": "6",
+  "id": 6,
   "name": "Red Cow",
   "code": "RED",
   "location": {
@@ -53,7 +53,7 @@
   }
 },
 {
-  "id": "7",
+  "id": 7,
   "name": "Kylemore",
   "code": "KYL",
   "location": {
@@ -62,7 +62,7 @@
   }
 },
 {
-  "id": "8",
+  "id": 8,
   "name": "Bluebell",
   "code": "BLU",
   "location": {
@@ -71,7 +71,7 @@
   }
 },
 {
-  "id": "9",
+  "id": 9,
   "name": "Blackhorse",
   "code": "BLA",
   "location": {
@@ -80,7 +80,7 @@
   }
 },
 {
-  "id": "10",
+  "id": 10,
   "name": "Drimnagh",
   "code": "DRI",
   "location": {
@@ -89,7 +89,7 @@
   }
 },
 {
-  "id": "11",
+  "id": 11,
   "name": "Goldenbridge",
   "code": "GOL",
   "location": {
@@ -98,7 +98,7 @@
   }
 },
 {
-  "id": "12",
+  "id": 12,
   "name": "Suir Road",
   "code": "SUI",
   "location": {
@@ -107,7 +107,7 @@
   }
 },
 {
-  "id": "13",
+  "id": 13,
   "name": "Rialto",
   "code": "RIA",
   "location": {
@@ -116,7 +116,7 @@
   }
 },
 {
-  "id": "14",
+  "id": 14,
   "name": "Fatima",
   "code": "FAT",
   "location": {
@@ -125,7 +125,7 @@
   }
 },
 {
-  "id": "15",
+  "id": 15,
   "name": "James's",
   "code": "JAM",
   "location": {
@@ -134,7 +134,7 @@
   }
 },
 {
-  "id": "16",
+  "id": 16,
   "name": "Heuston",
   "code": "HEU",
   "location": {
@@ -143,7 +143,7 @@
   }
 },
 {
-  "id": "17",
+  "id": 17,
   "name": "Museum",
   "code": "MUS",
   "location": {
@@ -152,7 +152,7 @@
   }
 },
 {
-  "id": "18",
+  "id": 18,
   "name": "Smithfield",
   "code": "SMI",
   "location": {
@@ -161,7 +161,7 @@
   }
 },
 {
-  "id": "19",
+  "id": 19,
   "name": "Four Courts",
   "code": "FOU",
   "location": {
@@ -170,7 +170,7 @@
   }
 },
 {
-  "id": "20",
+  "id": 20,
   "name": "Jervis",
   "code": "JER",
   "location": {
@@ -179,7 +179,7 @@
   }
 },
 {
-  "id": "21",
+  "id": 21,
   "name": "Abbey Street",
   "code": "ABB",
   "location": {
@@ -188,7 +188,7 @@
   }
 },
 {
-  "id": "22",
+  "id": 22,
   "name": "Busáras",
   "code": "BUS",
   "location": {
@@ -197,7 +197,7 @@
   }
 },
 {
-  "id": "23",
+  "id": 23,
   "name": "Connolly",
   "code": "CON",
   "location": {
@@ -206,7 +206,7 @@
   }
 },
 {
-  "id": "24",
+  "id": 24,
   "name": "St. Stephen's Green",
   "code": "STS",
   "location": {
@@ -215,7 +215,7 @@
   }
 },
 {
-  "id": "25",
+  "id": 25,
   "name": "Harcourt",
   "code": "HAR",
   "location": {
@@ -224,7 +224,7 @@
   }
 },
 {
-  "id": "26",
+  "id": 26,
   "name": "Charlemont",
   "code": "CHA",
   "location": {
@@ -233,7 +233,7 @@
   }
 },
 {
-  "id": "27",
+  "id": 27,
   "name": "Ranelagh",
   "code": "RAN",
   "location": {
@@ -242,7 +242,7 @@
   }
 },
 {
-  "id": "28",
+  "id": 28,
   "name": "Beechwood",
   "code": "BEE",
   "location": {
@@ -251,7 +251,7 @@
   }
 },
 {
-  "id": "29",
+  "id": 29,
   "name": "Cowper",
   "code": "COW",
   "location": {
@@ -260,7 +260,7 @@
   }
 },
 {
-  "id": "30",
+  "id": 30,
   "name": "Milltown",
   "code": "MIL",
   "location": {
@@ -269,7 +269,7 @@
   }
 },
 {
-  "id": "31",
+  "id": 31,
   "name": "Windy Arbour",
   "code": "WIN",
   "location": {
@@ -278,7 +278,7 @@
   }
 },
 {
-  "id": "32",
+  "id": 32,
   "name": "Dundrum",
   "code": "DUN",
   "location": {
@@ -287,7 +287,7 @@
   }
 },
 {
-  "id": "33",
+  "id": 33,
   "name": "Balally",
   "code": "BAL",
   "location": {
@@ -296,7 +296,7 @@
   }
 },
 {
-  "id": "34",
+  "id": 34,
   "name": "Kilmacud",
   "code": "KIL",
   "location": {
@@ -305,7 +305,7 @@
   }
 },
 {
-  "id": "35",
+  "id": 35,
   "name": "Stillorgan",
   "code": "STI",
   "location": {
@@ -314,7 +314,7 @@
   }
 },
 {
-  "id": "36",
+  "id": 36,
   "name": "Sandyford",
   "code": "SAN",
   "location": {
@@ -323,7 +323,7 @@
   }
 },
 {
-  "id": "37",
+  "id": 37,
   "name": "Central Park",
   "code": "CPK",
   "location": {
@@ -332,7 +332,7 @@
   }
 },
 {
-  "id": "38",
+  "id": 38,
   "name": "Glencairn",
   "code": "GLE",
   "location": {
@@ -341,7 +341,7 @@
   }
 },
 {
-  "id": "39",
+  "id": 39,
   "name": "The Gallops",
   "code": "GAL",
   "location": {
@@ -350,7 +350,7 @@
   }
 },
 {
-  "id": "40",
+  "id": 40,
   "name": "Leopardstown Valley",
   "code": "LEO",
   "location": {
@@ -359,7 +359,7 @@
   }
 },
 {
-  "id": "42",
+  "id": 42,
   "name": "Ballyogan Wood",
   "code": "BAW",
   "location": {
@@ -368,7 +368,7 @@
   }
 },
 {
-  "id": "43",
+  "id": 43,
   "name": "Racecourse",
   "code": "RCC",
   "location": {
@@ -377,7 +377,7 @@
   }
 },
 {
-  "id": "44",
+  "id": 44,
   "name": "Carrickmines",
   "code": "CCK",
   "location": {
@@ -386,7 +386,7 @@
   }
 },
 {
-  "id": "45",
+  "id": 45,
   "name": "Brennanstown",
   "code": "BRE",
   "location": {
@@ -395,7 +395,7 @@
   }
 },
 {
-  "id": "46",
+  "id": 46,
   "name": "Laughanstown",
   "code": "LAU",
   "location": {
@@ -404,7 +404,7 @@
   }
 },
 {
-  "id": "47",
+  "id": 47,
   "name": "Cherrywood",
   "code": "CHE",
   "location": {
@@ -413,7 +413,16 @@
   }
 },
 {
-  "id": "49",
+  "id": 48,
+  "name": "Bride's Glen",
+  "code": "BRI",
+  "location": {
+    "longitude": -6.1427831,
+    "latitude": 53.2418708
+  }
+},
+{
+  "id": 49,
   "name": "Fettercairn",
   "code": "FET",
   "location": {
@@ -422,7 +431,7 @@
   }
 },
 {
-  "id": "50",
+  "id": 50,
   "name": "Cheeverstown",
   "code": "CVN",
   "location": {
@@ -431,7 +440,7 @@
   }
 },
 {
-  "id": "51",
+  "id": 51,
   "name": "Citywest Campus",
   "code": "CIT",
   "location": {
@@ -440,7 +449,7 @@
   }
 },
 {
-  "id": "52",
+  "id": 52,
   "name": "Fortunestown",
   "code": "FOR",
   "location": {
@@ -449,7 +458,7 @@
   }
 },
 {
-  "id": "53",
+  "id": 53,
   "name": "Saggart",
   "code": "SAG",
   "location": {
@@ -458,7 +467,7 @@
   }
 },
 {
-  "id": "54",
+  "id": 54,
   "name": "George's Dock",
   "code": "GDK",
   "location": {
@@ -467,7 +476,7 @@
   }
 },
 {
-  "id": "55",
+  "id": 55,
   "name": "Mayor Square",
   "code": "MYS",
   "location": {
@@ -476,7 +485,7 @@
   }
 },
 {
-  "id": "56",
+  "id": 56,
   "name": "Spencer Dock",
   "code": "SDK",
   "location": {
@@ -485,7 +494,7 @@
   }
 },
 {
-  "id": "57",
+  "id": 57,
   "name": "The Point",
   "code": "TPT",
   "location": {
@@ -494,7 +503,7 @@
   }
 },
 {
-  "id": "58",
+  "id": 58,
   "name": "Depot",
   "code": "DEP",
   "location": {
@@ -503,7 +512,7 @@
   }
 },
 {
-  "id": "59",
+  "id": 59,
   "name": "Dawson",
   "code": "DAW",
   "location": {
@@ -512,7 +521,7 @@
   }
 },
 {
-  "id": "60",
+  "id": 60,
   "name": "Trinity",
   "code": "TRY",
   "location": {
@@ -521,7 +530,7 @@
   }
 },
 {
-  "id": "61",
+  "id": 61,
   "name": "Westmoreland",
   "code": "WES",
   "location": {
@@ -530,7 +539,7 @@
   }
 },
 {
-  "id": "62",
+  "id": 62,
   "name": "Marlborough",
   "code": "MAR",
   "location": {
@@ -539,7 +548,7 @@
   }
 },
 {
-  "id": "63",
+  "id": 63,
   "name": "O'Connell",
   "code": "OGP",
   "location": {
@@ -548,7 +557,7 @@
   }
 },
 {
-  "id": "64",
+  "id": 64,
   "name": "O'Connell",
   "code": "OUP",
   "location": {
@@ -557,7 +566,7 @@
   }
 },
 {
-  "id": "65",
+  "id": 65,
   "name": "Parnell",
   "code": "PAR",
   "location": {
@@ -566,7 +575,7 @@
   }
 },
 {
-  "id": "66",
+  "id": 66,
   "name": "Dominick",
   "code": "DOM",
   "location": {
@@ -575,7 +584,7 @@
   }
 },
 {
-  "id": "67",
+  "id": 67,
   "name": "Broadstone",
   "code": "BRD",
   "location": {
@@ -584,7 +593,7 @@
   }
 },
 {
-  "id": "68",
+  "id": 68,
   "name": "Grangegorman",
   "code": "GRA",
   "location": {
@@ -593,7 +602,7 @@
   }
 },
 {
-  "id": "69",
+  "id": 69,
   "name": "Phibsborough",
   "code": "PHI",
   "location": {
@@ -602,7 +611,7 @@
   }
 },
 {
-  "id": "70",
+  "id": 70,
   "name": "Cabra",
   "code": "CAB",
   "location": {
@@ -611,7 +620,7 @@
   }
 },
 {
-  "id": "71",
+  "id": 71,
   "name": "Broombridge",
   "code": "BRO",
   "location": {

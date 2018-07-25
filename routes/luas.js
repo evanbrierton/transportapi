@@ -1,10 +1,11 @@
-const express = require('express');
+const { Router } = require('express');
 
-const { luas: { getStops, getStop } } = require('../handlers');
+const { luas: { getStops, getStop, nearby } } = require('../handlers');
 
-const router = express.Router({ mergeParams: true });
+const router = Router({ mergeParams: true });
 
 router.get('/stops', getStops);
+router.get('/stops/nearby', nearby);
 router.get('/stops/:id', getStop);
 
 module.exports = router;

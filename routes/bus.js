@@ -1,6 +1,6 @@
 const { Router } = require('express');
 
-const { dart: { getStops, getStop, nearby } } = require('../handlers');
+const { bus: { getStops, getStop, nearby } } = require('../handlers');
 
 const router = Router({ mergeParams: true });
 
