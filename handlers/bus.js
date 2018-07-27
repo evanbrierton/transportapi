@@ -1,9 +1,15 @@
-const {
-  utils: { request }, constructors: { GetStops, Nearby }, validators: { checkServices },
-} = require('../helpers');
-const { bus } = require('../data');
+const { Service, utils: { request }, validators: { checkServices } } = require('../helpers');
+const { busData } = require('../data');
 
-exports.getStops = async (req, res, next) => GetStops(res, next, bus);
+const bus = new Service(busData);
+
+exports.getStops = async (req, res, next) => bus.getStops(res, next);
+
+exports.nearby = async ({ body: { location } }, res, next) => (
+  bus.getNearby(location)
+    .then(data => res.status(200).json(data))
+    .catch(err => next(err))
+);
 
 exports.getStop = async ({ params: { id } }, res, next) => {
   request(`https://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?stopid=${id}`)
@@ -22,5 +28,3 @@ exports.getStop = async ({ params: { id } }, res, next) => {
     .then(data => res.status(200).json(data))
     .catch(err => next(err));
 };
-
-exports.nearby = (req, res, next) => Nearby(req, res, next, bus);

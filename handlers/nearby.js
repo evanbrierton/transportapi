@@ -1,14 +1,17 @@
-const { utils: { request } } = require('../helpers');
+const { Service } = require('../helpers');
+const { busData, luasData, dartData } = require('../data');
 
-const services = ['dart', 'luas', 'bus'];
-
-const nearby = (req, res, next) => {
-  new Promise(resolve => resolve(services))
-    .then(data => Promise.all(data.map(service => request(`http://localhost:3000/api/${service}/stops/nearby`))))
-    .then(data => data.map((stops, i) => ({ service: services[i], stops })))
-    .then(data => data.filter(({ stops: [stops] }) => stops))
-    .then(data => res.send(data))
+module.exports = async ({ body: { location } }, res, next) => {
+  Promise.resolve([
+    { stops: dartData, name: 'dart' },
+    { stops: luasData, name: 'luas' },
+    { stops: busData, name: 'bus' },
+  ])
+    .then(data => data.map(({ stops, name }) => new Service(stops, name)))
+    .then(data => Promise.all(data.map(async service => ({
+      name: service.name, service: await service.getNearby(location),
+    }))))
+    .then(data => data.filter(({ service }) => service && service[0]))
+    .then(data => res.status(200).json(data))
     .catch(err => next(err));
 };
-
-module.exports = nearby;

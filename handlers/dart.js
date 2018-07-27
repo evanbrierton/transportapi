@@ -1,14 +1,21 @@
 const { toJson } = require('xml2json');
 
-const {
-  utils: { request, findStop }, constructors: { GetStops, Nearby }, validators: { checkServices },
-} = require('../helpers');
-const { dart } = require('../data');
+const { Service, utils: { request }, validators: { checkServices } } = require('../helpers');
+const { dartData } = require('../data');
 
-exports.getStops = async (req, res, next) => GetStops(res, next, dart);
+const dart = new Service(dartData);
+
+exports.getStops = async (req, res, next) => dart.getStops(res, next);
+
+exports.nearby = async ({ body: { location } }, res, next) => (
+  dart.getNearby(location)
+    .then(data => res.status(200).json(data))
+    .catch(err => next(err))
+);
+
 
 exports.getStop = async ({ params: { id } }, res, next) => {
-  findStop(dart, id)
+  dart.findStop(id)
     .then(({ name }) => request(`http://api.irishrail.ie/realtime/realtime.asmx/getStationDataByNameXML?StationDesc=${name}`))
     .then(data => toJson(data))
     .then(data => JSON.parse(data))
@@ -30,5 +37,3 @@ exports.getStop = async ({ params: { id } }, res, next) => {
     .then(data => res.status(200).json(data))
     .catch(err => next(err));
 };
-
-exports.nearby = (req, res, next) => Nearby(req, res, next, dart);

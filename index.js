@@ -11,9 +11,12 @@ const app = express();
 
 const { PORT } = process.env;
 
-app.use('/api/luas', luasRoutes);
-app.use('/api/dart', dartRoutes);
-app.use('/api/bus', busRoutes);
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
+app.use('/api/luas/stops', luasRoutes);
+app.use('/api/dart/stops', dartRoutes);
+app.use('/api/bus/stops', busRoutes);
 app.use('/api/nearby', nearbyRoute);
 
 app.use((req, res, next) => {

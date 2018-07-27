@@ -4,6 +4,6 @@ const { nearby } = require('../handlers');
 
 const router = Router({ mergeParams: true });
 
-router.get('/', nearby);
+router.post('/', nearby);
 
 module.exports = router;

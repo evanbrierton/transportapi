@@ -1,3 +1,3 @@
-exports.luas = require('./luas.json');
-exports.dart = require('./dart.json');
-exports.bus = require('./bus');
+exports.luasData = require('./luas.json');
+exports.dartData = require('./dart.json');
+exports.busData = require('./bus');
