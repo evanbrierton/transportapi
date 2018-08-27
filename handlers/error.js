@@ -1,7 +1,5 @@
-const errorHandler = async ({ status, message }, req, res, next) => (
-  next(res.status(status || 500).json({
-    error: { message: message || 'Something went wrong.' },
-  }))
+const errorHandler = ({ status = 500, message = 'Something went wrong.' }, req, res, next) => (
+  next(res.status(status).json({ error: { message, status } }))
 );
 
 module.exports = errorHandler;

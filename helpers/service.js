@@ -1,7 +1,7 @@
-const { request, calcDistance, chunk } = require('./utils');
-const { checkStops, checkResults } = require('./validators');
+const { calcDistance } = require('./utils');
+const { openRouteServiceAPICall } = require('./api');
 
-module.exports = class Service {
+class Service {
   constructor(stops, name) {
     this.stops = stops;
     this.name = name;
@@ -15,56 +15,42 @@ module.exports = class Service {
     }
   }
 
-  async findStop(id) {
+  async findStop(id, next) {
     return new Promise((resolve, reject) => {
       Promise.resolve(this.stops)
         .then(stops => stops.find(({ code }) => code === id.toUpperCase()))
-        .then(checkStops)
+        .then(data => (!data ? next({ status: 404, message: 'No Stops Found' }) : data))
         .then(stop => resolve(stop))
         .catch(err => reject(err));
     });
   }
 
   isNearby(origin) {
-    return this.stops.filter(({ location }) => calcDistance(origin, location) < 1260);
+    return this.stops.map(stop => ({
+      ...stop, distance: calcDistance(origin, stop.location),
+    })).filter(({ distance }) => distance < 1260);
   }
 
   async getNearby(origin) {
-    const baseURL = `https://maps.googleapis.com/maps/api/distancematrix/json?mode=walking&key=${process.env.DISTANCE_MATRIX_KEY}`;
-    const nearbyStops = this.isNearby(origin);
+    const nearbyStops = origin ? this.isNearby(origin) : [];
 
     return new Promise((resolve, reject) => {
-      if (nearbyStops[0]) {
-        Promise.resolve(nearbyStops)
-          .then(data => (
-            data.reduce((acc, { location: { longitude, latitude } }) => (
-              `${acc + latitude},${longitude}|`
-            ), '')
-          ))
-          .then(data => data.split('|'))
-          .then(data => chunk(data))
-          .then(checkResults)
-          .then(data => (
-            Promise.all(data.map(coords => (
-              request(
-                `${baseURL}&origins=${origin.latitude},${origin.longitude}&destinations=${coords.join('|')}`,
-              )
-            )))
-          ))
-          .then(data => data.map(({ rows: [{ elements }] }) => elements))
-          .then(data => data.reduce((acc, next) => acc.concat(next)))
-          .then(data => (
-            data.map(({ duration: { value } }, i) => (
-              { ...nearbyStops[i], distance: value }
-            ))
-          ))
-          .then(data => data.filter(({ distance }) => distance < 900))
-          .then(data => data.sort((a, b) => a.distance - b.distance))
-          .then(data => resolve(data))
-          .catch(err => reject(err));
-      } else {
-        resolve(null);
-      }
+      Promise.resolve(nearbyStops)
+        .then(data => (data[0] ? data : resolve(data)))
+        .then(data => openRouteServiceAPICall(data, origin))
+        .then(data => data.filter(({ distance }) => distance < 900))
+        .then(data => data.sort((a, b) => a.distance - b.distance))
+        .then(data => resolve(data))
+        .catch(err => reject(err));
     });
   }
-};
+
+  async nearby({ method, body: { location } }, res, next) {
+    return method !== 'POST' ? next({ status: 405, message: `Method Not Allowed: ${method}` })
+      : this.getNearby(location)
+        .then(data => res.status(200).json(data))
+        .catch(err => next(err));
+  }
+}
+
+module.exports = Service;

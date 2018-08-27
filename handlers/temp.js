@@ -2,11 +2,11 @@
 // exports.getStops = async (req, res, next) => {
 //   request('http://data.dublinked.ie/cgi-bin/rtpi/busstopinformation')
 //     .then(({ results }) => results.map(({
-//       displaystopid, fullname, latitude, longitude, operators,
+//       displaystopid, fullname, latitude, longitude, operators: [{ routes }],
 //     }) => ({
 //       id: +displaystopid,
 //       name: fullname,
-//       operators,
+//       routes,
 //       location: { latitude: +latitude, longitude: +longitude },
 //     })))
 //     .then(data => data.filter(({ id }) => id))

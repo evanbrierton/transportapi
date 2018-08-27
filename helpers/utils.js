@@ -10,12 +10,12 @@ exports.chunk = (arr, chunkSize = 64) => (
   ))
 );
 
-exports.calcDistance = (origin, destination) => {
+exports.calcDistance = (origin, { longitude, latitude }) => {
   const toRadians = num => num * (Math.PI / 180);
 
   const φ1 = toRadians(origin.latitude);
-  const φ2 = toRadians(destination.latitude);
-  const δλ = toRadians(destination.longitude - origin.longitude);
+  const φ2 = toRadians(latitude);
+  const δλ = toRadians(longitude - origin.longitude);
 
   const a = (Math.sin((φ1 - φ2) / 2) ** 2)
             + Math.cos(φ1) * Math.cos(φ2)

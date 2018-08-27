@@ -1,12 +1,16 @@
 const { Service } = require('../helpers');
 const { busData, luasData, dartData } = require('../data');
 
-module.exports = async ({ body: { location } }, res, next) => {
+module.exports = async ({ method, body: { location } }, res, next) => {
+  console.log(method);
   Promise.resolve([
     { stops: dartData, name: 'dart' },
     { stops: luasData, name: 'luas' },
     { stops: busData, name: 'bus' },
   ])
+    .then(data => (method === 'POST' ? data : next({
+      status: 429, message: `Method not allowed: ${method}`,
+    })))
     .then(data => data.map(({ stops, name }) => new Service(stops, name)))
     .then(data => Promise.all(data.map(async service => ({
       name: service.name, service: await service.getNearby(location),

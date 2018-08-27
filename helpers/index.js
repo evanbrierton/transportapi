@@ -1,3 +1,4 @@
 exports.utils = require('./utils');
-exports.validators = require('./validators');
+exports.limiter = require('./limiter');
 exports.Service = require('./service');
+exports.Route = require('./router');
