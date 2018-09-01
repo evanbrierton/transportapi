@@ -1,0 +1,73 @@
+[{
+    "name": "dart",
+    "service": [{
+        "name": "Dublin Connolly",
+        "location": {
+          "longitude": -6.24591,
+          "latitude": 53.3531
+        },
+        "code": "CNLLY",
+        "id": 100,
+        "distance": 384.92
+      },
+      {
+        "name": "Tara Street",
+        "location": {
+          "longitude": -6.25425,
+          "latitude": 53.347
+        },
+        "code": "TARA",
+        "id": 124,
+        "distance": 706.94
+      }
+    ]
+  },
+  {
+    "name": "luas",
+    "service": [{
+        "id": 23,
+        "name": "Connolly",
+        "code": "CON",
+        "location": {
+          "longitude": -6.24994166666667,
+          "latitude": 53.3509222222222
+        },
+        "distance": 62.12
+      },
+      {
+        "id": 22,
+        "name": "Busáras",
+        "code": "BUS",
+        "location": {
+          "latitude": 53.3500984,
+          "longitude": -6.2514561
+        },
+        "distance": 175.55
+      }
+    ]
+  },
+  {
+    "name": "bus",
+    "service": [{
+        "id": 1500,
+        "name": "Amiens Street",
+        "location": {
+          "latitude": 53.35102,
+          "longitude": -6.250105
+        },
+        "routes": ["151", "27"],
+        "distance": 47.8
+      },
+      {
+        "id": 620,
+        "name": "Talbot Place",
+        "location": {
+          "latitude": 53.350965,
+          "longitude": -6.252734
+        },
+        "routes": ["32", "31B", "31", "29A", "31A", "27A", "130", "747"],
+        "distance": 174.45
+      }
+    ]
+  }
+]

@@ -268,12 +268,20 @@
               </ul>
           </li>
           <li>
+            <a href="#nearby" class="toc-h1 toc-link" data-title="Nearby">Nearby</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-nearby-stops" class="toc-h2 toc-link" data-title="Get Nearby Stops">Get Nearby Stops</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
         <ul class="toc-footer">
             <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+            <li><a href='https://github.com/lord/slate' rel="noreferrer" target="_blank">Documentation Powered by Slate</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -288,17 +296,17 @@
 <p>To authorize, use this code:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"http://example.com/api/endpoint-here"</span>
+curl <span class="s2">"https://dublintransportapi.herokuapp.com/api/endpoint-here"</span>
   -H <span class="s2">"Auth: your-key-here"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'dublintransportjs'</span><span class="p">);</span>
 
-<span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'your-key-here'</span><span class="p">);</span>
+<span class="nx">api</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'your-key-here'</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p>Make sure to replace <code>your-key-here</code> with your API key.</p>
 </blockquote>
 
-<p>The Dublin Area Transport API uses API keys to allow access to the API. You can register a new API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<p>The Dublin Area Transport API uses API keys to allow access to the API. You can register a new API key at our <a href="https://dublintransportapi.herokuapp.com/developers">developer portal</a>.</p>
 
 <p>An API key need not be included in the request but you will be limited to 120 requests per hour without one, you can contact us at the developer portal if you require more requests.</p>
 
@@ -307,11 +315,11 @@ curl <span class="s2">"http://example.com/api/endpoint-here"</span>
 <aside class="notice">
 You must replace <code>your-key-here</code> with your personal API key.
 </aside>
-<h1 id='bus'>Bus</h1><h2 id='get-all-stops'>Get All Stops</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/bus/stops"</span>
+<h1 id='bus'>Bus</h1><h2 id='get-all-stops'>Get All Stops</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://dublintransportapi.herokuapp.com/api/bus/stops"</span>
   -H <span class="s2">"Auth: your-key-here"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'dublintransportjs'</span><span class="p">);</span>
 
-<span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'your-key-here'</span><span class="p">);</span>
+<span class="nx">api</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'your-key-here'</span><span class="p">);</span>
 <span class="nx">api</span><span class="p">.</span><span class="nx">bus</span><span class="p">.</span><span class="nx">get</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">stops</span> <span class="o">=&gt;</span> <span class="nx">stops</span><span class="p">);</span>
 </code></pre>
 <blockquote>
@@ -340,35 +348,16 @@ You must replace <code>your-key-here</code> with your personal API key.
 </span></code></pre>
 <p>This endpoint retrieves all bus stops.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/bus/stops</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
+<p><code>GET https://dublintransportapi.herokuapp.com/api/bus/stops</code></p>
 
 <aside class="success">
 Remember — include your auth token in the header!
 </aside>
-<h2 id='get-real-time-information'>Get Real Time Information</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/bus/stops/543"</span>
+<h2 id='get-real-time-information'>Get Real Time Information</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://dublintransportapi.herokuapp.com/api/bus/stops/543"</span>
   -H <span class="s2">"Auth: your-key-here"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'dublintransportjs'</span><span class="p">);</span>
 
-<span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'your-key-here'</span><span class="p">);</span>
+<span class="nx">api</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'your-key-here'</span><span class="p">);</span>
 <span class="nx">api</span><span class="p">.</span><span class="nx">bus</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">543</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">stop</span> <span class="o">=&gt;</span> <span class="nx">stop</span><span class="p">);</span>
 </code></pre>
 <blockquote>
@@ -400,7 +389,7 @@ Remember — include your auth token in the header!
 
 <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/api/bus/stops/&lt;ID&gt;</code></p>
+<p><code>GET https://dublintransportapi.herokuapp.com/api/bus/stops/&lt;ID&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -417,9 +406,9 @@ Remember — include your auth token in the header!
   -H <span class="s2">"Auth: your-key-here"</span>
   -H <span class="s2">"Content-Type: application/json"</span>
   -d <span class="s1">'{ "location": { "latitude": 53.3498, "longitude": -6.2603 } }'</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'dublintransportjs'</span><span class="p">);</span>
 
-<span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'your-key-here'</span><span class="p">);</span>
+<span class="nx">api</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'your-key-here'</span><span class="p">);</span>
 <span class="nx">api</span><span class="p">.</span><span class="nx">bus</span><span class="p">.</span><span class="nx">nearby</span><span class="p">({</span> <span class="na">latitude</span><span class="p">:</span> <span class="mf">53.3498</span><span class="p">,</span> <span class="na">longitude</span><span class="p">:</span> <span class="o">-</span><span class="mf">6.2603</span> <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">nearby</span> <span class="o">=&gt;</span> <span class="nx">nearby</span><span class="p">);</span>
 </code></pre>
 <blockquote>
@@ -450,7 +439,7 @@ Remember — include your auth token in the header!
 </span></code></pre>
 <p>This endpoint lists all stops within 15 minutes walking distance along with the walking distance specific to each stop.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST http://example.com/api/bus/stops/nearby</code></p>
+<p><code>POST https://dublintransportapi.herokuapp.com/api/bus/stops/nearby</code></p>
 <h3 id='request-body'>Request Body</h3>
 <table><thead>
 <tr>
@@ -463,11 +452,11 @@ Remember — include your auth token in the header!
 <td>An object containing latitude and longitude coordinates.</td>
 </tr>
 </tbody></table>
-<h1 id='dart'>DART</h1><h2 id='get-all-stops-2'>Get All Stops</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/dart/stops"</span>
+<h1 id='dart'>DART</h1><h2 id='get-all-stops-2'>Get All Stops</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://dublintransportapi.herokuapp.com/api/dart/stops"</span>
   -H <span class="s2">"Auth: your-key-here"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'dublintransportjs'</span><span class="p">);</span>
 
-<span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'your-key-here'</span><span class="p">);</span>
+<span class="nx">api</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'your-key-here'</span><span class="p">);</span>
 <span class="nx">api</span><span class="p">.</span><span class="nx">dart</span><span class="p">.</span><span class="nx">get</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">stops</span> <span class="o">=&gt;</span> <span class="nx">stops</span><span class="p">);</span>
 </code></pre>
 <blockquote>
@@ -496,35 +485,16 @@ Remember — include your auth token in the header!
 </span></code></pre>
 <p>This endpoint retrieves all dart stops.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>GET http://example.com/api/dart/stops</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
+<p><code>GET https://dublintransportapi.herokuapp.com/api/dart/stops</code></p>
 
 <aside class="success">
 Remember — include your auth token in the header!
 </aside>
-<h2 id='get-real-time-information-2'>Get Real Time Information</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/dart/stops/dlery"</span>
+<h2 id='get-real-time-information-2'>Get Real Time Information</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://dublintransportapi.herokuapp.com/api/dart/stops/dlery"</span>
   -H <span class="s2">"Auth: your-key-here"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'dublintransportjs'</span><span class="p">);</span>
 
-<span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'your-key-here'</span><span class="p">);</span>
+<span class="nx">api</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'your-key-here'</span><span class="p">);</span>
 <span class="nx">api</span><span class="p">.</span><span class="nx">dart</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'DLERY'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">stop</span> <span class="o">=&gt;</span> <span class="nx">stop</span><span class="p">);</span>
 </code></pre>
 <blockquote>
@@ -560,7 +530,7 @@ Remember — include your auth token in the header!
 
 <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>GET http://example.com/api/dart/stops/&lt;CODE&gt;</code></p>
+<p><code>GET https://dublintransportapi.herokuapp.com/api/dart/stops/&lt;CODE&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -577,9 +547,9 @@ Remember — include your auth token in the header!
   -H <span class="s2">"Auth: your-key-here"</span>
   -H <span class="s2">"Content-Type: application/json"</span>
   -d <span class="s1">'{ "location": { "latitude": 53.342998628, "longitude": -6.256165642 } }'</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'dublintransportjs'</span><span class="p">);</span>
 
-<span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'your-key-here'</span><span class="p">);</span>
+<span class="nx">api</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'your-key-here'</span><span class="p">);</span>
 <span class="nx">api</span><span class="p">.</span><span class="nx">dart</span><span class="p">.</span><span class="nx">nearby</span><span class="p">({</span> <span class="na">latitude</span><span class="p">:</span> <span class="mf">53.342998628</span><span class="p">,</span> <span class="na">longitude</span><span class="p">:</span> <span class="o">-</span><span class="mf">6.256165642</span> <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">nearby</span> <span class="o">=&gt;</span> <span class="nx">nearby</span><span class="p">);</span>
 </code></pre>
 <blockquote>
@@ -610,7 +580,7 @@ Remember — include your auth token in the header!
 </span></code></pre>
 <p>This endpoint lists all stops within 15 minutes walking distance along with the walking distance specific to each stop.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
-<p><code>POST http://example.com/api/dart/stops/nearby</code></p>
+<p><code>POST https://dublintransportapi.herokuapp.com/api/dart/stops/nearby</code></p>
 <h3 id='request-body-2'>Request Body</h3>
 <table><thead>
 <tr>
@@ -623,11 +593,11 @@ Remember — include your auth token in the header!
 <td>An object containing latitude and longitude coordinates.</td>
 </tr>
 </tbody></table>
-<h1 id='luas'>Luas</h1><h2 id='get-all-stops-3'>Get All Stops</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/luas/stops"</span>
+<h1 id='luas'>Luas</h1><h2 id='get-all-stops-3'>Get All Stops</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://dublintransportapi.herokuapp.com/api/luas/stops"</span>
   -H <span class="s2">"Auth: your-key-here"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'dublintransportjs'</span><span class="p">);</span>
 
-<span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'your-key-here'</span><span class="p">);</span>
+<span class="nx">api</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'your-key-here'</span><span class="p">);</span>
 <span class="nx">api</span><span class="p">.</span><span class="nx">luas</span><span class="p">.</span><span class="nx">get</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">stops</span> <span class="o">=&gt;</span> <span class="nx">stops</span><span class="p">);</span>
 </code></pre>
 <blockquote>
@@ -656,35 +626,16 @@ Remember — include your auth token in the header!
 </span></code></pre>
 <p>This endpoint retrieves all luas stops.</p>
 <h3 id='http-request-7'>HTTP Request</h3>
-<p><code>GET http://example.com/api/luas/stops</code></p>
-<h3 id='query-parameters-3'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
+<p><code>GET https://dublintransportapi.herokuapp.com/api/luas/stops</code></p>
 
 <aside class="success">
 Remember — include your auth token in the header!
 </aside>
-<h2 id='get-real-time-information-3'>Get Real Time Information</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/luas/stops/che"</span>
+<h2 id='get-real-time-information-3'>Get Real Time Information</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://dublintransportapi.herokuapp.com/api/luas/stops/che"</span>
   -H <span class="s2">"Auth: your-key-here"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'dublintransportjs'</span><span class="p">);</span>
 
-<span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'your-key-here'</span><span class="p">);</span>
+<span class="nx">api</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'your-key-here'</span><span class="p">);</span>
 <span class="nx">api</span><span class="p">.</span><span class="nx">luas</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'CHE'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">stop</span> <span class="o">=&gt;</span> <span class="nx">stop</span><span class="p">);</span>
 </code></pre>
 <blockquote>
@@ -716,7 +667,7 @@ Remember — include your auth token in the header!
 
 <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
 <h3 id='http-request-8'>HTTP Request</h3>
-<p><code>GET http://example.com/api/luas/stops/&lt;CODE&gt;</code></p>
+<p><code>GET https://dublintransportapi.herokuapp.com/api/luas/stops/&lt;CODE&gt;</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -733,9 +684,9 @@ Remember — include your auth token in the header!
   -H <span class="s2">"Auth: your-key-here"</span>
   -H <span class="s2">"Content-Type: application/json"</span>
   -d <span class="s1">'{ "location": { "latitude": 53.3498, "longitude": -6.2603 } }'</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'dublintransportjs'</span><span class="p">);</span>
 
-<span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'your-key-here'</span><span class="p">);</span>
+<span class="nx">api</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'your-key-here'</span><span class="p">);</span>
 <span class="nx">api</span><span class="p">.</span><span class="nx">luas</span><span class="p">.</span><span class="nx">nearby</span><span class="p">({</span> <span class="na">latitude</span><span class="p">:</span> <span class="mf">53.3498</span><span class="p">,</span> <span class="na">longitude</span><span class="p">:</span> <span class="o">-</span><span class="mf">6.2603</span> <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">nearby</span> <span class="o">=&gt;</span> <span class="nx">nearby</span><span class="p">);</span>
 </code></pre>
 <blockquote>
@@ -766,7 +717,7 @@ Remember — include your auth token in the header!
 </span></code></pre>
 <p>This endpoint lists all stops within 15 minutes walking distance along with the walking distance specific to each stop.</p>
 <h3 id='http-request-9'>HTTP Request</h3>
-<p><code>POST http://example.com/api/luas/stops/nearby</code></p>
+<p><code>POST https://dublintransportapi.herokuapp.com/api/luas/stops/nearby</code></p>
 <h3 id='request-body-3'>Request Body</h3>
 <table><thead>
 <tr>
@@ -779,6 +730,99 @@ Remember — include your auth token in the header!
 <td>An object containing latitude and longitude coordinates.</td>
 </tr>
 </tbody></table>
+<h1 id='nearby'>Nearby</h1><h2 id='get-nearby-stops'>Get Nearby Stops</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://dublintransportapi.herokuapp.com/api/nearby"</span>
+  -H <span class="s2">"Auth: your-key-here"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+  -d <span class="s1">'{ "location": { "latitude": 53.3515, "longitude": -6.2497 } }'</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'dublintransportjs'</span><span class="p">);</span>
+
+<span class="nx">api</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'your-key-here'</span><span class="p">);</span>
+<span class="nx">api</span><span class="p">.</span><span class="nx">nearby</span><span class="p">({</span> <span class="na">latitude</span><span class="p">:</span> <span class="mf">53.3515</span><span class="p">,</span> <span class="na">longitude</span><span class="p">:</span> <span class="o">-</span><span class="mf">6.2497</span> <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">stops</span> <span class="o">=&gt;</span> <span class="nx">stops</span><span class="p">);</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[{</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dart"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dublin Connolly"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-6.24591</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">53.3531</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CNLLY"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"distance"</span><span class="p">:</span><span class="w"> </span><span class="mf">384.92</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tara Street"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-6.25425</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">53.347</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TARA"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">124</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"distance"</span><span class="p">:</span><span class="w"> </span><span class="mf">706.94</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"luas"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Connolly"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CON"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-6.24994166666667</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">53.3509222222222</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"distance"</span><span class="p">:</span><span class="w"> </span><span class="mf">62.12</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Busáras"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BUS"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">53.3500984</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-6.2514561</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"distance"</span><span class="p">:</span><span class="w"> </span><span class="mf">175.55</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bus"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Amiens Street"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">53.35102</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-6.250105</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"routes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"151"</span><span class="p">,</span><span class="w"> </span><span class="s2">"27"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"distance"</span><span class="p">:</span><span class="w"> </span><span class="mf">47.8</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">620</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Talbot Place"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">53.350965</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-6.252734</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"routes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"32"</span><span class="p">,</span><span class="w"> </span><span class="s2">"31B"</span><span class="p">,</span><span class="w"> </span><span class="s2">"31"</span><span class="p">,</span><span class="w"> </span><span class="s2">"29A"</span><span class="p">,</span><span class="w"> </span><span class="s2">"31A"</span><span class="p">,</span><span class="w"> </span><span class="s2">"27A"</span><span class="p">,</span><span class="w"> </span><span class="s2">"130"</span><span class="p">,</span><span class="w"> </span><span class="s2">"747"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"distance"</span><span class="p">:</span><span class="w"> </span><span class="mf">174.45</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint lists all stops of all three transport services within 15 minutes walking distance along with the walking distance specific to each stop.</p>
+<h3 id='http-request-10'>HTTP Request</h3>
+<p><code>GET https://dublintransportapi.herokuapp.com/api/nearby</code></p>
+
+<aside class="success">
+Remember — include your auth token in the header!
+</aside>
 <h1 id='errors'>Errors</h1>
 <p>The Kittn API uses the following error codes:</p>
 

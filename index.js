@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const express = require('express');
+const cors = require('cors');
 
 const { errorHandler } = require('./handlers');
 const { limiter } = require('./helpers');
@@ -15,6 +16,7 @@ const { PORT } = process.env;
 app.use(express.static(`${__dirname}/static`));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
 
 app.use('/api/dart', limiter);
 
