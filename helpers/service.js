@@ -15,10 +15,10 @@ class Service {
     }
   }
 
-  async findStop(id, next) {
+  async findStop(queryId, next) {
     return new Promise((resolve, reject) => {
       Promise.resolve(this.stops)
-        .then(stops => stops.find(({ code }) => code === id.toUpperCase()))
+        .then(stops => stops.find(({ id }) => id === +queryId))
         .then(data => (!data ? next({ status: 404, message: 'No Stops Found' }) : data))
         .then(stop => resolve(stop))
         .catch(err => reject(err));

@@ -5,6 +5,7 @@ const cors = require('cors');
 
 const { errorHandler } = require('./handlers');
 const { limiter } = require('./helpers');
+const updater = require('./updaters');
 const {
   luasRoutes, dartRoutes, busRoutes, nearbyRoute,
 } = require('./routes');
@@ -12,6 +13,8 @@ const {
 const app = express();
 
 const { PORT } = process.env;
+
+setTimeout(updater, 8.64e+7);
 
 app.use(express.static(`${__dirname}/static`));
 app.use(express.urlencoded({ extended: true }));
