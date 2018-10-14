@@ -6,7 +6,7 @@ module.exports = async (req, res, next) => {
   request('http://data.dublinked.ie/cgi-bin/rtpi/busstopinformation')
     .then(({ results }) => results.filter(({
       operators, displaystopid,
-    }) => displaystopid && operators.find(({ name }) => name === 'bac')))
+    }) => displaystopid && operators.find(({ name }) => name === 'bac' || name === 'GAD')))
     .then(data => data.map(({
       displaystopid, fullname, latitude, longitude, operators: [{ routes }],
     }) => ({

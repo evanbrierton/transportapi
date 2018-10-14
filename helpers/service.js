@@ -33,21 +33,20 @@ class Service {
 
   async getNearby(origin) {
     const nearbyStops = origin ? this.isNearby(origin) : [];
-
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       Promise.resolve(nearbyStops)
         .then(data => (data[0] ? data : resolve(data)))
         .then(data => openRouteServiceAPICall(data, origin))
-        .then(data => data.filter(({ distance }) => distance < 900))
-        .then(data => data.sort((a, b) => a.distance - b.distance))
         .then(data => resolve(data))
-        .catch(err => reject(err));
+        .catch(() => resolve(nearbyStops));
     });
   }
 
   async nearby({ method, body: { location } }, res, next) {
     return method !== 'POST' ? next({ status: 405, message: `Method Not Allowed: ${method}` })
       : this.getNearby(location)
+        .then(data => data.sort((a, b) => a.distance - b.distance))
+        .then(data => data.filter(({ distance }) => distance < 900))
         .then(data => res.status(200).json(data))
         .catch(err => next(err));
   }

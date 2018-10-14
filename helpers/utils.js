@@ -21,5 +21,5 @@ exports.calcDistance = (origin, { longitude, latitude }) => {
             + Math.cos(φ1) * Math.cos(φ2)
             * (Math.sin(δλ / 2) ** 2);
 
-  return Math.round(6371e3 * 2 * Math.atan(Math.sqrt(a), Math.sqrt(1 - a)));
+  return Math.ceil(6371e3 * 2 * Math.atan(Math.sqrt(a), Math.sqrt(1 - a)));
 };

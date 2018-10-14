@@ -14,6 +14,6 @@ exports.openRouteServiceAPICall = (response, origin) => (
     .then(data => data.map(({ durations: [durations] }) => durations))
     .then(data => data.reduce((acc, next) => [...acc, ...next]))
     .then(data => data.filter(value => value !== 0))
-    .then(data => data.map((duration, i) => ({ ...response[i], distance: duration })))
+    .then(data => data.map((duration, i) => ({ ...response[i], distance: Math.ceil(duration) })))
     .catch(err => Promise.reject(err))
 );
