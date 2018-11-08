@@ -15,7 +15,7 @@ module.exports = async (next) => {
       location: { latitude: +latitude, longitude: +longitude },
       routes: [...new Set(operators.reduce((acc, { routes }) => [...acc, ...routes], []))]
         .sort((a, b) => a.localeCompare(b, 'en', { numeric: true })),
-      type: 'Bus',
+      type: 'bus',
     })))
     .then(data => fs.writeFile('data/bus.json', JSON.stringify(data), err => (err && next(err))))
     .catch(err => console.log(err));

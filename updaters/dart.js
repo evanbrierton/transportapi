@@ -12,12 +12,12 @@ module.exports = async (next) => {
     .then(data => data.map(({
       StationDesc, StationAlias, StationLatitude, StationLongitude, StationCode, StationId,
     }) => ({
-      name: StationDesc,
+      name: `${StationDesc} DART`,
       alias: typeof StationAlias === 'object' ? undefined : StationAlias,
       location: { latitude: +StationLatitude, longitude: +StationLongitude },
       code: StationCode,
       id: +StationId,
-      type: 'DART',
+      type: 'dart',
     })))
     .then(data => data.map(stop => (
       stop.alias && stop.alias.includes(' ')

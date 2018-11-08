@@ -17,13 +17,13 @@ module.exports = async (req, res, next) => {
         ),
       )
     ))
-    .then(data => data.map(([number, code, name]) => ({ id: +number, name, code })))
+    .then(data => data.map(([number, code, name]) => ({ id: +number, name: `${name} Luas`, code })))
     .then(data => data.filter(({ name }) => name))
     .then(data => data.sort((a, b) => a.id - b.id))
     .then(data => data.map(item => ({
       ...item,
       location: luasData.find(({ name }) => name === item.name).location,
-      type: 'Luas',
+      type: 'luas',
     })))
     .then(data => fs.writeFile('data/luas.json', JSON.stringify(data), err => (err && next(err))))
     .catch(err => next(err));
