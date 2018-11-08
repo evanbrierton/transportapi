@@ -11,11 +11,12 @@ exports.nearby = async (req, res, next) => dart.nearby(req, res, next);
 
 exports.getStop = async ({ params: { id } }, res, next) => {
   dart.findStop(id, next)
-    .then(({ name }) => request(`http://api.irishrail.ie/realtime/realtime.asmx/getStationDataByNameXML?StationDesc=${name}`))
+    .then(({ name }) => name.split(' ')[0])
+    .then(name => request(`http://api.irishrail.ie/realtime/realtime.asmx/getStationDataByNameXML?StationDesc=${name}`))
     .then(data => toJson(data))
     .then(data => JSON.parse(data))
     .then(({ ArrayOfObjStationData: { objStationData } }) => objStationData)
-    .then(data => (!data ? ({
+    .then(data => (!data ? next({
       message: 'There are no services running at this time.', status: 404,
     }) : data))
     .then(data => data.map(({
