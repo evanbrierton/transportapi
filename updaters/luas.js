@@ -17,7 +17,7 @@ module.exports = async (req, res, next) => {
         ),
       )
     ))
-    .then(data => data.map(([number, code, name]) => ({ id: number, name, code })))
+    .then(data => data.map(([number, code, name]) => ({ id: +number, name, code })))
     .then(data => data.filter(({ name }) => name))
     .then(data => data.sort((a, b) => a.id - b.id))
     .then(data => data.map(item => ({
