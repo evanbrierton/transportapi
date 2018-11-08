@@ -17,6 +17,7 @@ module.exports = async (next) => {
       location: { latitude: +StationLatitude, longitude: +StationLongitude },
       code: StationCode,
       id: +StationId,
+      type: 'dart',
     })))
     .then(data => data.map(stop => (
       stop.alias && stop.alias.includes(' ')
