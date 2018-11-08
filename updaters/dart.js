@@ -16,7 +16,7 @@ module.exports = async (next) => {
       alias: typeof StationAlias === 'object' ? undefined : StationAlias,
       location: { latitude: +StationLatitude, longitude: +StationLongitude },
       code: StationCode,
-      id: StationId,
+      id: +StationId,
     })))
     .then(data => data.map(stop => (
       stop.alias && stop.alias.includes(' ')
