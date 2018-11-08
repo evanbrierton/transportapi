@@ -26,5 +26,5 @@ module.exports = async (req, res, next) => {
       type: 'luas',
     })))
     .then(data => fs.writeFile('data/luas.json', JSON.stringify(data), err => (err && next(err))))
-    .catch(err => next(err));
+    .catch(err => console.log(err));
 };
