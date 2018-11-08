@@ -17,7 +17,7 @@ module.exports = async (req, res, next) => {
         ),
       )
     ))
-    .then(data => data.map(([number, code, name]) => ({ id: +number, name: `${name} Luas`, code })))
+    .then(data => data.map(([number, code, name]) => ({ id: +number, name, code })))
     .then(data => data.filter(({ name }) => name))
     .then(data => data.sort((a, b) => a.id - b.id))
     .then(data => data.map(item => ({
@@ -25,6 +25,7 @@ module.exports = async (req, res, next) => {
       location: luasData.find(({ name }) => name === item.name).location,
       type: 'luas',
     })))
+    .then(data => data.map(item => ({ ...item, name: `${item.name} Luas` })))
     .then(data => fs.writeFile('data/luas.json', JSON.stringify(data), err => (err && next(err))))
     .catch(err => console.log(err));
 };
