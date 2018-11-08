@@ -35,3 +35,8 @@ app.get('/', (req, res) => res.sendFile('index'));
 app.use(errorHandler);
 
 app.listen(PORT || 3000, () => console.info(`Server Started on port ${PORT || 3000}`));
+
+if (process.argv[2] === 'update') {
+  updater();
+  setTimeout(() => process.exit(0), 10000);
+}

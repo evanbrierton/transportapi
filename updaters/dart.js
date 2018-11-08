@@ -4,7 +4,7 @@ const { toJson } = require('xml2json');
 const { utils: { request } } = require('../helpers');
 
 
-module.exports = async (req, res, next) => {
+module.exports = async (next) => {
   request('http://api.irishrail.ie/realtime/realtime.asmx/getAllStationsXML_WithStationType?StationType=D')
     .then(data => toJson(data))
     .then(data => JSON.parse(data))
@@ -14,7 +14,7 @@ module.exports = async (req, res, next) => {
     }) => ({
       name: StationDesc,
       alias: typeof StationAlias === 'object' ? undefined : StationAlias,
-      location: { latitude: StationLatitude, longitude: StationLongitude },
+      location: { latitude: +StationLatitude, longitude: +StationLongitude },
       code: StationCode,
       id: StationId,
     })))
