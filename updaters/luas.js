@@ -22,7 +22,9 @@ module.exports = async (req, res, next) => {
     .then(data => data.sort((a, b) => a.id - b.id))
     .then(data => data.map(item => ({
       ...item,
-      location: luasData.find(({ name }) => name === item.name).location,
+      location: luasData.find(({ name }) => name === item.name)
+        ? luasData.find(({ name }) => name === item.name).location
+        : null,
       type: 'luas',
     })))
     .then(data => data.map(item => ({ ...item, name: `${item.name} Luas` })))
