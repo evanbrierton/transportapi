@@ -32,7 +32,7 @@ exports.getStop = async ({ params: { id } }, res, next) => {
     .then(data => data.filter(({ destination, stationName }) => destination !== stationName))
     .then(data => data.map(({ stationName, ...rest }) => rest))
     .then(data => data.sort((a, b) => a.due - b.due))
-    .then(services => ({ ...dartData.find(({ code }) => id.toUpperCase() === code), services }))
+    .then(data => data.map(services => ({ ...dartData.find(service => id === service.id), services })))
     .then(data => res.status(200).json(data))
     .catch(err => next(err));
 };
