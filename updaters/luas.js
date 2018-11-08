@@ -23,7 +23,7 @@ module.exports = async (req, res, next) => {
     .then(data => data.map(item => ({
       ...item,
       location: luasData.find(({ name }) => name === item.name).location,
-      type: 'luas',
+      type: 'Luas',
     })))
     .then(data => fs.writeFile('data/luas.json', JSON.stringify(data), err => (err && next(err))))
     .catch(err => next(err));
