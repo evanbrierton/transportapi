@@ -1,8 +1,9 @@
 const axios = require('axios');
 
-exports.request = async (url, method = 'get', options) => (
-  axios[method](url, options).then(({ data }) => data)
-);
+exports.request = async (url, method = 'get', options) => {
+  console.log('REQUEST', url);
+  return axios[method](url, options).then(({ data }) => data).catch(err => console.log(err));
+};
 
 exports.chunk = (arr, chunkSize = 64) => (
   Array(Math.ceil(arr.length / chunkSize)).fill().map((item, i) => (

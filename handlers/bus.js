@@ -19,7 +19,7 @@ exports.getStop = async ({ params: { id } }, res, next) => {
     .then(({ results }) => results.map(({ duetime, destination, route }) => ({
       due: duetime === 'Due' ? 0 : +duetime, destination, route,
     })))
-    .then(data => (data[1] ? data : ({
+    .then(data => (data[0] ? data : ({
       message: 'There are no services running at this time.',
       status: 404,
     })))

@@ -4,7 +4,7 @@ const { toJson } = require('xml2json');
 const { utils: { request } } = require('../helpers');
 
 
-module.exports = async (req, res, next) => {
+module.exports = async (next) => {
   request('http://api.irishrail.ie/realtime/realtime.asmx/getAllStationsXML_WithStationType?StationType=D')
     .then(data => toJson(data))
     .then(data => JSON.parse(data))
@@ -24,5 +24,5 @@ module.exports = async (req, res, next) => {
         : stop
     )))
     .then(data => fs.writeFile('data/dart.json', JSON.stringify(data), err => (err && next(err))))
-    .catch(err => next(err));
+    .catch(err => console.log(err));
 };
