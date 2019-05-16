@@ -11,11 +11,10 @@ exports.nearby = async (req, res, next) => dart.nearby(req, res, next);
 
 exports.getStop = async ({ params: { id } }, res, next) => {
   dart.findStop(id, next)
-    .then(({ name }) => request(`http://api.irishrail.ie/realtime/realtime.asmx/getStationDataByNameXML?StationDesc=${name}`))
-    .then(data => toJson(data))
-    .then(data => JSON.parse(data))
+    .then(({ code }) => request(`http://api.irishrail.ie/realtime/realtime.asmx/getStationDataByCodeXML?StationCode=${code}`))
+    .then(data => JSON.parse(toJson(data)))
     .then(({ ArrayOfObjStationData: { objStationData } }) => objStationData)
-    .then(data => (!data ? ({
+    .then(data => (!data ? next({
       message: 'There are no services running at this time.', status: 404,
     }) : data))
     .then(data => data.map(({
@@ -31,7 +30,7 @@ exports.getStop = async ({ params: { id } }, res, next) => {
     .then(data => data.filter(({ destination, stationName }) => destination !== stationName))
     .then(data => data.map(({ stationName, ...rest }) => rest))
     .then(data => data.sort((a, b) => a.due - b.due))
-    .then(services => ({ ...dartData.find(({ code }) => id.toUpperCase() === code), services }))
+    .then(data => ({ ...dartData.find(service => +id === service.id), services: data }))
     .then(data => res.status(200).json(data))
     .catch(err => next(err));
 };

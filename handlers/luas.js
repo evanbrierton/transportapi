@@ -13,7 +13,7 @@ exports.getStop = async ({ params: { id } }, res, next) => {
   luas.findStop(id, next)
     .then(data => request(`https://luasforecasts.rpa.ie/analysis/view.aspx?id=${data.id}`))
     .then(data => convert(data)[0])
-    .then(data => (!data ? ({
+    .then(data => (!data ? next({
       message: 'There are no services running at this time.', status: 404,
     }) : data))
     .then(data => (
@@ -23,7 +23,7 @@ exports.getStop = async ({ params: { id } }, res, next) => {
     ))
     .then(data => data.filter(({ direction }) => direction !== 'Terminating'))
     .then(data => data.sort((a, b) => a.due - b.due))
-    .then(services => ({ ...luasData.find(({ code }) => id.toUpperCase() === code), services }))
+    .then(services => ({ ...luasData.find(stop => stop.id === +id), services }))
     .then(data => res.status(200).json(data))
     .catch(err => next(err));
 };

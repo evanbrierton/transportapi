@@ -1,4 +1,4 @@
-const { Service, utils: { request } } = require('../helpers');
+const { Service, utils: { request, log } } = require('../helpers');
 const { busData } = require('../data');
 
 const bus = new Service(busData);
@@ -9,7 +9,8 @@ exports.nearby = async (req, res, next) => bus.nearby(req, res, next);
 
 exports.getStop = async ({ params: { id } }, res, next) => {
   bus.findStop(id, next)
-    .then(data => request(`https://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?stopid=${data.id}`))
+    .then(data => request(`https://data.smartdublin.ie/cgi-bin/rtpi/realtimebusinformation?stopid=${data.id}`))
+    .then(log)
     .then((data) => {
       const { errorcode } = data;
       if (+errorcode === 4) next({ message: 'Scheduled Downtime', status: 503 });

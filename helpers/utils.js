@@ -11,6 +11,11 @@ exports.chunk = (arr, chunkSize = 64) => (
   ))
 );
 
+exports.log = (data) => {
+  console.log(data);
+  return data;
+};
+
 exports.calcDistance = (origin, { longitude, latitude }) => {
   const toRadians = num => num * (Math.PI / 180);
 
