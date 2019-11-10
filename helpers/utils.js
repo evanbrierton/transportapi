@@ -1,9 +1,9 @@
 const axios = require('axios');
+const { errorHandler } = require('../handlers');
 
-exports.request = async (url, method = 'get', options) => {
-  console.log('REQUEST', url);
-  return axios[method](url, options).then(({ data }) => data).catch(err => console.log(err));
-};
+exports.request = async (url, method = 'get', options) => axios[method](url, options)
+  .then(({ data }) => data)
+  .catch((err) => errorHandler(err));
 
 exports.chunk = (arr, chunkSize = 64) => (
   Array(Math.ceil(arr.length / chunkSize)).fill().map((item, i) => (
@@ -11,13 +11,8 @@ exports.chunk = (arr, chunkSize = 64) => (
   ))
 );
 
-exports.log = (data) => {
-  console.log(data);
-  return data;
-};
-
 exports.calcDistance = (origin, { longitude, latitude }) => {
-  const toRadians = num => num * (Math.PI / 180);
+  const toRadians = (num) => num * (Math.PI / 180);
 
   const φ1 = toRadians(origin.latitude);
   const φ2 = toRadians(latitude);
